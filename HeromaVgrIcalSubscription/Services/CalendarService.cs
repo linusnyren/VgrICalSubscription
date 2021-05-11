@@ -2,24 +2,32 @@
 using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
+using HeromaVgrIcalSubscription.Options;
+using Microsoft.Extensions.Options;
 using RestSharp;
 
 namespace HeromaVgrIcalSubscription.Services
 {
     public class CalendarService : ICalendarService
     {
-        public CalendarService()
+        private readonly CalendarOptions options;
+        private readonly IRestClient client;
+
+        public CalendarService(IOptions<CalendarOptions> options, IRestClient client)
         {
+            this.options = options.Value;
+            this.client = client;
+            client.BaseUrl = new Uri(options.Value.URL);
         }
 
         public async Task<IRestResponse> GetIcalAsync(CookieModel cookies, int months)
         {
-            var client = new RestClient("https://heroma.vgregion.se/Webbklient/api/APCalendarApi/getCalendarFile");
-
             var request = new RestRequest(Method.POST);
 
             long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            long stop = DateTimeOffset.Now.AddMonths(months).ToUnixTimeMilliseconds();
+
+            int due = months < options.MaxMonths ? months : options.MaxMonths;
+            long stop = DateTimeOffset.Now.AddMonths(due).ToUnixTimeMilliseconds();
 
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             request.AddHeader("Cookie", cookies.Token);

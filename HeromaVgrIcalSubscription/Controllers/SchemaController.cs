@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
+using HeromaVgrIcalSubscription.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 namespace HeromaVgrIcalSubscription.Controllers
@@ -21,7 +22,7 @@ namespace HeromaVgrIcalSubscription.Controllers
         [HttpGet("{user}/{password}/{months}")]
         public async Task<string> Get(string user, string password, int months)
         {
-            var req = new Models.SchemaRequest
+            var req = new SchemaRequest
             {
                 UserName = user,
                 Password = password,

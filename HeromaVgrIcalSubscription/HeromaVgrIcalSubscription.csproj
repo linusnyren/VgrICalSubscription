@@ -10,6 +10,7 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Services\" />
+    <Folder Include="Options\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />

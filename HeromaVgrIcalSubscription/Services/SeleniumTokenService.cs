@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
+using HeromaVgrIcalSubscription.Options;
+using Microsoft.Extensions.Options;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
@@ -9,23 +11,26 @@ namespace HeromaVgrIcalSubscription.Services
 {
     public class SeleniumTokenService : ISeleniumTokenService
     {
-        public SeleniumTokenService()
+        private readonly SeleniumOptions options;
+
+        public SeleniumTokenService(IOptions<SeleniumOptions> options)
         {
+            this.options = options.Value;
         }
 
         public async Task<CookieModel> GetCookiesAsync(string username, string password)
         {
             IWebDriver driver;
 
-            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService("/Users/LinusNyren/Downloads", "geckodriver");
-            service.Port = 64444;
+            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
+            service.Port = options.ServicePort;
 
-            FirefoxOptions options = new FirefoxOptions();
-            options.AddArguments("--headless");
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.AddArguments("--headless");
 
-            driver = new FirefoxDriver(service, options);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.Url = "https://heroma.vgregion.se/Webbklient/Account/Login";
+            driver = new FirefoxDriver(service, firefoxOptions);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
+            driver.Url = options.TargetUrl;
 
             driver.FindElement(By.XPath("//input[@placeholder='Användarnamn']")).SendKeys(username);
             driver.FindElement(By.XPath("//input[@placeholder='Lösenord']")).SendKeys(password);
