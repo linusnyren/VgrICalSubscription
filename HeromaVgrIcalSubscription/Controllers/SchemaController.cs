@@ -2,6 +2,7 @@
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 namespace HeromaVgrIcalSubscription.Controllers
 {
@@ -28,9 +29,9 @@ namespace HeromaVgrIcalSubscription.Controllers
                 Password = password,
                 Months = months
             };
-            var res = await schemaService.GetCalendarAsync(req);
 
-            return res.Content;
+            return (await schemaService.GetCalendarAsync(req)).Content;
+            
         }
     }
 }
