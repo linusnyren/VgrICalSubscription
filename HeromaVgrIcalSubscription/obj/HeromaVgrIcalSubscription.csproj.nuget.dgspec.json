@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj": {}
+  },
+  "projects": {
+    "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj",
+        "projectName": "HeromaVgrIcalSubscription",
+        "projectPath": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj",
+        "packagesPath": "/Users/LinusNyren/.nuget/packages/",
+        "outputPath": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/LinusNyren/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.11.7, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
