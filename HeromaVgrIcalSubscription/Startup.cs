@@ -31,6 +31,8 @@ namespace HeromaVgrIcalSubscription
         {
             services.Configure<CalendarOptions>(Configuration.GetSection("CalendarOptions"));
             services.Configure<SeleniumOptions>(Configuration.GetSection("SeleniumOptions"));
+            services.Configure<CacheOptions>(Configuration.GetSection("CacheOptions"));
+
             services.AddControllers();
 
             services.AddTransient<ISchemaService, SchemaService>();
@@ -38,6 +40,8 @@ namespace HeromaVgrIcalSubscription
             services.AddTransient<ISeleniumTokenService, SeleniumTokenService>();
 
             services.AddSingleton<IRestClient, RestClient>();
+
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +51,7 @@ namespace HeromaVgrIcalSubscription
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

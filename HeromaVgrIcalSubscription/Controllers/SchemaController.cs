@@ -1,9 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
+using HeromaVgrIcalSubscription.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+
 namespace HeromaVgrIcalSubscription.Controllers
 {
     [ApiController]
@@ -13,11 +17,20 @@ namespace HeromaVgrIcalSubscription.Controllers
 
         private readonly ILogger<SchemaController> logger;
         private readonly ISchemaService schemaService;
+        private readonly IMemoryCache cache;
+        private readonly CacheOptions options;
 
-        public SchemaController(ILogger<SchemaController> logger, ISchemaService schemaService)
+        public SchemaController(
+            ILogger<SchemaController> logger,
+            ISchemaService schemaService,
+            IMemoryCache cache,
+            IOptions<CacheOptions> options
+            )
         {
             this.logger = logger;
             this.schemaService = schemaService;
+            this.cache = cache;
+            this.options = options.Value;
         }
 
         [HttpGet("{user}/{password}/{months}")]
@@ -29,9 +42,11 @@ namespace HeromaVgrIcalSubscription.Controllers
                 Password = password,
                 Months = months
             };
-
-            return (await schemaService.GetCalendarAsync(req)).Content;
-            
+            var key = $"{user}-{password}-{months}";
+            return await cache.GetOrCreateAsync(key, async entry => {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(options.TtlHours);
+                return (await schemaService.GetCalendarAsync(req)).Content;
+            });
         }
     }
 }
