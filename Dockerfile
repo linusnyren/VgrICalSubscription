@@ -10,10 +10,6 @@ ENV ASPNETCORE_URLS=https://+:5001
 EXPOSE 5001
 EXPOSE 5000
 
-# Changing to Swedish locale for correct website values
-ENV LC_ALL sv_SE.UTF-8
-ENV LANG sv_SE.UTF-8
-ENV LANGUAGE sv_SE.UTF-8
 
 #Install Firefox for Selenium to use.
 RUN echo "deb http://deb.debian.org/debian/ unstable main contrib non-free" >> /etc/apt/sources.list.d/debian.list
@@ -35,7 +31,9 @@ RUN git clone https://github.com/linusnyren/VgrICalSubscription.git
 RUN sed -i 's+Users/LinusNyren/Downloads+app+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
 
 #Change locale since docker is using the english website version
-RUN sed -i 's+SV+EN+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
+RUN sed -i 's+Swedish+English+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
+
+RUN cat VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
 
 #Build project
 RUN dotnet publish VgrICalSubscription/HeromaVgrIcalSubscription.sln -c Debug

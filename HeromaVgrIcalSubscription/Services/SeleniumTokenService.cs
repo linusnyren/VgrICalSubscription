@@ -29,17 +29,17 @@ namespace HeromaVgrIcalSubscription.Services
             service.Port = options.ServicePort;
 
             FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.AddArguments("--headless");
+            //firefoxOptions.AddArguments("--headless");
 
             driver = new FirefoxDriver(service, firefoxOptions);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
-            if (options.Locale == "SV")
+            if (options.Locale == "Swedish")
             {
                 driver.FindElement(By.XPath("//input[@placeholder='Användarnamn']")).SendKeys(username);
                 driver.FindElement(By.XPath("//input[@placeholder='Lösenord']")).SendKeys(password);
             }
-            else if (options.Locale == "EN")
+            else if (options.Locale == "English")
             {
                 driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
                 driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
@@ -56,12 +56,12 @@ namespace HeromaVgrIcalSubscription.Services
             string token = "";
             foreach(var cookie in cookies)
             {
+                log.LogInformation(cookie.Name + "  " + cookie.Value +"\n");
                 if (cookie.Name == "language")
                     token += "language=sv-SE; ";
                 else
                     token += $"{cookie.Name}={cookie.Value}; ";
             }
-            log.LogInformation(token);
             return new CookieModel
             {
                 Token = token,
