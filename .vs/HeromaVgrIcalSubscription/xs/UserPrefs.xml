@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{E4CB35FC-DC87-4DE8-BBA2-4A75BEF6C41F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Controllers/SchemaController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs">
     <Files>
       <File FileName="HeromaVgrIcalSubscription/Models/SchemaRequest.cs" Line="1" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ICalendarService.cs" />
       <File FileName="HeromaVgrIcalSubscription/Services/CalendarService.cs" />
       <File FileName="HeromaVgrIcalSubscription/Startup.cs" />
-      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" Line="38" Column="35" />
-      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="39" Column="30" />
       <File FileName="HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj" />
       <File FileName="HeromaVgrIcalSubscription/appsettings.json" />
       <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" />
@@ -20,15 +20,15 @@
         <State name="__root__">
           <Node name="HeromaVgrIcalSubscription" expanded="True">
             <Node name="HeromaVgrIcalSubscription" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="SchemaController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Interfaces" expanded="True">
                 <Node name="Services" expanded="True" />
               </Node>
               <Node name="Options" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Services" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="SeleniumTokenService.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -39,9 +39,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" relfile="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" line="37" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

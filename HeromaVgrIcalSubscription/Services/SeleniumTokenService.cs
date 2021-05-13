@@ -37,20 +37,15 @@ namespace HeromaVgrIcalSubscription.Services
             service.Port = 64445;
             ChromeOptions chromeOptions = new ChromeOptions();
 
+            chromeOptions.AddArguments("headless");
+
             driver = new ChromeDriver(service, chromeOptions);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
-            if (options.Locale == "Swedish")
-            {
-                driver.FindElement(By.XPath("//input[@placeholder='Användarnamn']")).SendKeys(username);
-                driver.FindElement(By.XPath("//input[@placeholder='Lösenord']")).SendKeys(password);
-            }
-            else if (options.Locale == "English")
-            {
-                driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
-                driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
-            }
 
+            driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
+            driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
+            
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
 
             string verificationToken = driver.FindElement(By.XPath("//input[@name='__RequestVerificationToken']")).GetAttribute("value");
