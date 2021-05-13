@@ -36,8 +36,10 @@ namespace HeromaVgrIcalSubscription.Services
             driver = new FirefoxDriver(service, firefoxOptions);*/
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments(new List<string>() {
+                        "--no-sandbox",
+                        "--headless",
                         "--silent-launch",
-                        "--no-startup-window",
+                        "--disable-dev-shm-usage",
                         "no-sandbox",});
 
             var chromeDriverService = ChromeDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
