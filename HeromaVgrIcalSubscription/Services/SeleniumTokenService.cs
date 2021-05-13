@@ -29,7 +29,7 @@ namespace HeromaVgrIcalSubscription.Services
             service.Port = options.ServicePort;
 
             FirefoxOptions firefoxOptions = new FirefoxOptions();
-            //firefoxOptions.AddArguments("--headless");
+            firefoxOptions.AddArguments("--headless");
 
             driver = new FirefoxDriver(service, firefoxOptions);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);

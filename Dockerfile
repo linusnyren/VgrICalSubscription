@@ -20,7 +20,8 @@ RUN apt-get install -y --no-install-recommends firefox
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux32.tar.gz
 RUN tar -xvzf geckodriver*
 RUN chmod +x geckodriver
-
+RUN ls
+RUN pwd
 #Install Git
 RUN apt-get install -yq git
 
@@ -28,7 +29,7 @@ RUN apt-get install -yq git
 RUN git clone https://github.com/linusnyren/VgrICalSubscription.git
 
 #Change path to geckodriver in appsettings.json
-RUN sed -i 's+Users/LinusNyren/Downloads+app+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
+RUN sed -i 's+/Users/LinusNyren/Downloads+/app+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
 
 #Change locale since docker is using the english website version
 RUN sed -i 's+Swedish+English+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
