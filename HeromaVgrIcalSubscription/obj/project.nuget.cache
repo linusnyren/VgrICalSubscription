@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CSTHgVuaOL91NRo0iMe07qK96t2a4aHIfy77F8QqLaQqqf38U65MJFy5Y9GAXugxTv5IWnnzqneQgu514LC8hg==",
+  "dgSpecHash": "+r5JB9V/FbLdsdreQWPRZYdh6jjgTwNcmlx3ejbLvIp7Bw7vWE5/hzE10QM1OjuWAZ9qXmWpuDEP8Euty2fSww==",
   "success": true,
   "projectFilePath": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj",
   "expectedPackageFiles": [
@@ -27,7 +27,9 @@
     "/Users/LinusNyren/.nuget/packages/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/LinusNyren/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/LinusNyren/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "/Users/LinusNyren/.nuget/packages/selenium.chrome.webdriver/85.0.0/selenium.chrome.webdriver.85.0.0.nupkg.sha512",
     "/Users/LinusNyren/.nuget/packages/selenium.webdriver/3.141.0/selenium.webdriver.3.141.0.nupkg.sha512",
+    "/Users/LinusNyren/.nuget/packages/selenium.webdriver.chromedriver/90.0.4430.2400/selenium.webdriver.chromedriver.90.0.4430.2400.nupkg.sha512",
     "/Users/LinusNyren/.nuget/packages/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg.sha512",
     "/Users/LinusNyren/.nuget/packages/system.buffers/4.3.0/system.buffers.4.3.0.nupkg.sha512",
     "/Users/LinusNyren/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",

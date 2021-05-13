@@ -18,10 +18,8 @@ RUN apt-get update && apt-get -y install google-chrome-stable
 
 #Get geckodriver for Selenium to use
 RUN wget https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_linux64.zip
-RUN ls
 RUN apt-get install -y unzip
 RUN unzip chromedriver_linux64.zip
-RUN ls
 RUN chmod +x chromedriver
 
 #Install Git

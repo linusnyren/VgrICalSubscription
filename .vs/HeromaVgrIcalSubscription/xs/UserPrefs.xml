@@ -6,7 +6,7 @@
       <File FileName="HeromaVgrIcalSubscription/Services/CalendarService.cs" />
       <File FileName="HeromaVgrIcalSubscription/Startup.cs" />
       <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" />
-      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="39" Column="30" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="37" Column="27" />
       <File FileName="HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj" />
       <File FileName="HeromaVgrIcalSubscription/appsettings.json" />
       <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" />

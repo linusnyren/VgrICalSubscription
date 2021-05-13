@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
@@ -33,13 +34,18 @@ namespace HeromaVgrIcalSubscription.Services
             firefoxOptions.AddArguments("--headless");
 
             driver = new FirefoxDriver(service, firefoxOptions);*/
-            ChromeDriverService service = ChromeDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
-            service.Port = 64445;
-            ChromeOptions chromeOptions = new ChromeOptions();
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments(new List<string>() {
+                        "--silent-launch",
+                        "--no-startup-window",
+                        "no-sandbox",
+                        "headless",});
 
-            chromeOptions.AddArguments("headless");
+            var chromeDriverService = ChromeDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
+            
+            chromeDriverService.HideCommandPromptWindow = true;    // This is to hidden the console.
 
-            driver = new ChromeDriver(service, chromeOptions);
+            driver = new ChromeDriver(chromeDriverService, chromeOptions);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
 
