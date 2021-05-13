@@ -1,30 +1,33 @@
 ﻿<Properties StartupConfiguration="{E4CB35FC-DC87-4DE8-BBA2-4A75BEF6C41F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj">
     <Files>
       <File FileName="HeromaVgrIcalSubscription/Models/SchemaRequest.cs" Line="1" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ICalendarService.cs" />
       <File FileName="HeromaVgrIcalSubscription/Services/CalendarService.cs" />
-      <File FileName="HeromaVgrIcalSubscription/Startup.cs" Line="42" Column="39" />
-      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" Line="25" Column="17" />
-      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Startup.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" Line="39" Column="1" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="16" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/Options/SeleniumOptions.cs" />
       <File FileName="HeromaVgrIcalSubscription/Program.cs" />
-      <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" Line="14" Column="106" />
-      <File FileName="HeromaVgrIcalSubscription/Options/CacheOptions.cs" Line="6" Column="28" />
-      <File FileName="HeromaVgrIcalSubscription/appsettings.json" Line="22" Column="6" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Options/CacheOptions.cs" />
+      <File FileName="HeromaVgrIcalSubscription/appsettings.json" Line="20" Column="5" />
+      <File FileName="HeromaVgrIcalSubscription/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="HeromaVgrIcalSubscription/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HeromaVgrIcalSubscription" expanded="True">
-            <Node name="HeromaVgrIcalSubscription" expanded="True">
+            <Node name="HeromaVgrIcalSubscription" expanded="True" selected="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
               <Node name="Interfaces" expanded="True" />
               <Node name="Options" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="Services" expanded="True" />
-              <Node name="appsettings.json" expanded="True" selected="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
