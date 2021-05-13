@@ -1,5 +1,12 @@
-# VgrICalSubscription
+# VgrICalSubscription  
+## If you just wanna try this out!!
+Just download the Dockerfile, the dockerfile clones this repository, sets up selenium with firefox and builds everything, eventually serves it at localhost:5001.   
+You can build and run the dockerfile with  
+docker build -t foo . && docker run -it -p 5001:5001 foo  
+  
+Please note you'll need an login at Heroma självservice(selfservice).
 
+## Short description
 This api logs in to Heroma to get cookies and access tokens.  
 It then uses the cookies and tokens to retrieve an Ical calendar.
 
