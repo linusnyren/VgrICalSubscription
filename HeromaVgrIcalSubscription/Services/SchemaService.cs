@@ -19,7 +19,7 @@ namespace HeromaVgrIcalSubscription.Services
 
         public async Task<IRestResponse> GetCalendarAsync(SchemaRequest req)
         {
-            var cookies = await seleniumTokenService.GetCookiesAsync(req.UserName, req.Password);
+            var cookies = seleniumTokenService.GetCookiesAsync(req.UserName, req.Password);
             var res = await calendarService.GetIcalAsync(cookies, req.Months);
 
             return res;

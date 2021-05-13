@@ -32,6 +32,11 @@ namespace HeromaVgrIcalSubscription.Controllers
             this.cache = cache;
             this.options = options.Value;
         }
+        [HttpGet]
+        public async Task<string> GetHealth()
+        {
+            return "Hello there!";
+        }
 
         [HttpGet("{user}/{password}/{months}")]
         public async Task<string> Get(string user, string password, int months)

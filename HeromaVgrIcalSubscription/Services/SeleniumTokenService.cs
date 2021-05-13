@@ -21,7 +21,7 @@ namespace HeromaVgrIcalSubscription.Services
             this.log = log;
         }
 
-        public async Task<CookieModel> GetCookiesAsync(string username, string password)
+        public CookieModel GetCookiesAsync(string username, string password)
         {
             IWebDriver driver;
 

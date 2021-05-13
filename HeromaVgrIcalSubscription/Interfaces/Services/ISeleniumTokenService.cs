@@ -6,6 +6,6 @@ namespace HeromaVgrIcalSubscription.Interfaces.Services
 {
     public interface ISeleniumTokenService
     {
-        Task<CookieModel> GetCookiesAsync(string username, string password);
+        CookieModel GetCookiesAsync(string username, string password);
     }
 }
