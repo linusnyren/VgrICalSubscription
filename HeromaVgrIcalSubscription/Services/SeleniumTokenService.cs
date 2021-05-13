@@ -6,6 +6,7 @@ using HeromaVgrIcalSubscription.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 
 namespace HeromaVgrIcalSubscription.Services
@@ -25,13 +26,18 @@ namespace HeromaVgrIcalSubscription.Services
         {
             IWebDriver driver;
 
-            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
+            /*FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
             service.Port = options.ServicePort;
 
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.AddArguments("--headless");
 
-            driver = new FirefoxDriver(service, firefoxOptions);
+            driver = new FirefoxDriver(service, firefoxOptions);*/
+            ChromeDriverService service = ChromeDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
+            service.Port = 64445;
+            ChromeOptions chromeOptions = new ChromeOptions();
+
+            driver = new ChromeDriver(service, chromeOptions);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
             if (options.Locale == "Swedish")
