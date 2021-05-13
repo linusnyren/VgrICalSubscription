@@ -56,7 +56,10 @@ namespace HeromaVgrIcalSubscription.Services
             string token = "";
             foreach(var cookie in cookies)
             {
-                token += $"{cookie.Name}={cookie.Value}; ";
+                if (cookie.Name == "language")
+                    token += "language=sv-SE; ";
+                else
+                    token += $"{cookie.Name}={cookie.Value}; ";
             }
             log.LogInformation(token);
             return new CookieModel
