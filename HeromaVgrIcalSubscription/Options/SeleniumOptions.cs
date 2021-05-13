@@ -8,6 +8,7 @@ namespace HeromaVgrIcalSubscription.Options
         public string Driver { get; set; }
         public int ServicePort { get; set; }
         public int TimeOut { get; set; }
+        public string Locale { get; set; }
 
         public SeleniumOptions()
         {

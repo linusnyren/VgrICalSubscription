@@ -31,9 +31,16 @@ namespace HeromaVgrIcalSubscription.Services
             driver = new FirefoxDriver(service, firefoxOptions);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
-
-            driver.FindElement(By.XPath("//input[@placeholder='Användarnamn']")).SendKeys(username);
-            driver.FindElement(By.XPath("//input[@placeholder='Lösenord']")).SendKeys(password);
+            if (options.Locale == "SV")
+            {
+                driver.FindElement(By.XPath("//input[@placeholder='Användarnamn']")).SendKeys(username);
+                driver.FindElement(By.XPath("//input[@placeholder='Lösenord']")).SendKeys(password);
+            }
+            else if (options.Locale == "EN")
+            {
+                driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
+                driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
+            }
 
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
 

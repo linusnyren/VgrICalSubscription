@@ -1,17 +1,18 @@
 ﻿<Properties StartupConfiguration="{E4CB35FC-DC87-4DE8-BBA2-4A75BEF6C41F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Options/SeleniumOptions.cs">
     <Files>
       <File FileName="HeromaVgrIcalSubscription/Models/SchemaRequest.cs" Line="1" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ICalendarService.cs" />
       <File FileName="HeromaVgrIcalSubscription/Services/CalendarService.cs" Line="25" Column="13" />
-      <File FileName="HeromaVgrIcalSubscription/Startup.cs" Line="28" Column="1" />
+      <File FileName="HeromaVgrIcalSubscription/Startup.cs" Line="26" Column="58" />
       <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" />
-      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="16" Column="1" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="36" Column="80" />
       <File FileName="HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj" Line="25" Column="9" />
       <File FileName="HeromaVgrIcalSubscription/appsettings.json" Line="1" Column="2" />
       <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" />
       <File FileName="HeromaVgrIcalSubscription/Properties/launchSettings.json" Line="23" Column="36" />
       <File FileName="HeromaVgrIcalSubscription/Program.cs" Line="16" Column="51" />
+      <File FileName="HeromaVgrIcalSubscription/Options/SeleniumOptions.cs" Line="12" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,9 +20,11 @@
           <Node name="HeromaVgrIcalSubscription" expanded="True">
             <Node name="HeromaVgrIcalSubscription" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="Options" expanded="True">
+                <Node name="SeleniumOptions.cs" selected="True" />
+              </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Services" expanded="True" />
-              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -32,9 +35,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/Startup.cs" relfile="HeromaVgrIcalSubscription/Startup.cs" line="24" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
