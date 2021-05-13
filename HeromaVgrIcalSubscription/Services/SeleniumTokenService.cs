@@ -38,8 +38,7 @@ namespace HeromaVgrIcalSubscription.Services
             chromeOptions.AddArguments(new List<string>() {
                         "--silent-launch",
                         "--no-startup-window",
-                        "no-sandbox",
-                        "headless",});
+                        "no-sandbox",});
 
             var chromeDriverService = ChromeDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
             
