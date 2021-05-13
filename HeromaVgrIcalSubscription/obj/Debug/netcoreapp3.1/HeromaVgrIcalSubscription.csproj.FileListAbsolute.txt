@@ -1,4 +1,9 @@
-/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/appsettings.Development.json
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/out/appsettings.json
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/out/HeromaVgrIcalSubscription.deps.json
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/out/HeromaVgrIcalSubscription.runtimeconfig.json
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/out/HeromaVgrIcalSubscription.runtimeconfig.dev.json
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/out/HeromaVgrIcalSubscription.dll
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/out/HeromaVgrIcalSubscription.pdb
 /Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/appsettings.json
 /Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/HeromaVgrIcalSubscription.deps.json
 /Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/HeromaVgrIcalSubscription.runtimeconfig.json

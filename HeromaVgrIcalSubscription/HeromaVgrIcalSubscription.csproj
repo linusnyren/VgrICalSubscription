@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-   <None Include="appsettings.json" CopyToPublishDirectory="Always" />
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -13,9 +16,13 @@
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Services\" />
     <Folder Include="Options\" />
+    <File Include="appsettings.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="RestSharp" Version="106.11.7" />
+    <None Include="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

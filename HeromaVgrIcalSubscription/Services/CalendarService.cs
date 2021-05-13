@@ -17,7 +17,7 @@ namespace HeromaVgrIcalSubscription.Services
         {
             this.options = options.Value;
             this.client = client;
-            client.BaseUrl = new Uri(options.Value.URL);
+            client.BaseUrl = new Uri(this.options.URL);
         }
 
         public async Task<IRestResponse> GetIcalAsync(CookieModel cookies, int months)

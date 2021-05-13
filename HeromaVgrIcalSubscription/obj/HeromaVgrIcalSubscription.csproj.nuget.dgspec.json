@@ -14,7 +14,7 @@
         "outputPath": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/LinusNyren/.config/NuGet/NuGet.Config"
+          "/Users/LinusNyren/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
