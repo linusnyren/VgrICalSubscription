@@ -43,7 +43,6 @@ namespace HeromaVgrIcalSubscription.Services
             request.AddParameter("__RequestVerificationToken", cookies.VerificationToken);
 
             IRestResponse response = await client.ExecuteAsync(request);
-            log.LogInformation(response.StatusCode.ToString());
             return response;
         }
     }

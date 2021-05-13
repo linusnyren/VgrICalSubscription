@@ -10,7 +10,6 @@ ENV ASPNETCORE_URLS=https://+:5001
 EXPOSE 5001
 EXPOSE 5000
 
-
 #Install Firefox for Selenium to use.
 RUN echo "deb http://deb.debian.org/debian/ unstable main contrib non-free" >> /etc/apt/sources.list.d/debian.list
 RUN apt-get update
@@ -20,8 +19,7 @@ RUN apt-get install -y --no-install-recommends firefox
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux32.tar.gz
 RUN tar -xvzf geckodriver*
 RUN chmod +x geckodriver
-RUN ls
-RUN pwd
+
 #Install Git
 RUN apt-get install -yq git
 
@@ -33,8 +31,6 @@ RUN sed -i 's+/Users/LinusNyren/Downloads+/app+g' VgrICalSubscription/HeromaVgrI
 
 #Change locale since docker is using the english website version
 RUN sed -i 's+Swedish+English+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
-
-RUN cat VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
 
 #Build project
 RUN dotnet publish VgrICalSubscription/HeromaVgrIcalSubscription.sln -c Debug
