@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
 using HeromaVgrIcalSubscription.Options;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RestSharp;
 
@@ -12,11 +13,13 @@ namespace HeromaVgrIcalSubscription.Services
     {
         private readonly CalendarOptions options;
         private readonly IRestClient client;
+        private readonly ILogger<CalendarService> log;
 
-        public CalendarService(IOptions<CalendarOptions> options, IRestClient client)
+        public CalendarService(IOptions<CalendarOptions> options, IRestClient client, ILogger<CalendarService> log)
         {
             this.options = options.Value;
             this.client = client;
+            this.log = log;
             client.BaseUrl = new Uri(this.options.URL);
         }
 
@@ -40,6 +43,7 @@ namespace HeromaVgrIcalSubscription.Services
             request.AddParameter("__RequestVerificationToken", cookies.VerificationToken);
 
             IRestResponse response = await client.ExecuteAsync(request);
+            log.LogInformation(response.StatusCode.ToString());
             return response;
         }
     }

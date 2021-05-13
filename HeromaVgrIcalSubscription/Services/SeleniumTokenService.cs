@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
 using HeromaVgrIcalSubscription.Options;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -12,10 +13,12 @@ namespace HeromaVgrIcalSubscription.Services
     public class SeleniumTokenService : ISeleniumTokenService
     {
         private readonly SeleniumOptions options;
+        private readonly ILogger<SeleniumTokenService> log;
 
-        public SeleniumTokenService(IOptions<SeleniumOptions> options)
+        public SeleniumTokenService(IOptions<SeleniumOptions> options, ILogger<SeleniumTokenService> log)
         {
             this.options = options.Value;
+            this.log = log;
         }
 
         public async Task<CookieModel> GetCookiesAsync(string username, string password)
@@ -46,6 +49,7 @@ namespace HeromaVgrIcalSubscription.Services
 
             string verificationToken = driver.FindElement(By.XPath("//input[@name='__RequestVerificationToken']")).GetAttribute("value");
             var cookies = driver.Manage().Cookies.AllCookies;
+            log.LogInformation(verificationToken);
             driver.Close();
             driver.Dispose();
             driver.Quit();
@@ -54,6 +58,7 @@ namespace HeromaVgrIcalSubscription.Services
             {
                 token += $"{cookie.Name}={cookie.Value}; ";
             }
+            log.LogInformation(token);
             return new CookieModel
             {
                 Token = token,
