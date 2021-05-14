@@ -27,14 +27,14 @@ namespace HeromaVgrIcalSubscription.Services
         {
             IWebDriver driver;
 
-            /*FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
+            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
             service.Port = options.ServicePort;
 
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.AddArguments("--headless");
 
-            driver = new FirefoxDriver(service, firefoxOptions);*/
-            var chromeOptions = new ChromeOptions();
+            driver = new FirefoxDriver(service, firefoxOptions);
+            /*var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments(new List<string>() {
                         "--no-sandbox",
                         "--headless",
@@ -46,12 +46,20 @@ namespace HeromaVgrIcalSubscription.Services
             
             chromeDriverService.HideCommandPromptWindow = true;    // This is to hidden the console.
 
-            driver = new ChromeDriver(chromeDriverService, chromeOptions);
+            driver = new ChromeDriver(chromeDriverService, chromeOptions);*/
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
-
-            driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
-            driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
+            if (options.Locale == "English")
+            {
+                driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
+                driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
+            }
+            else if (options.Locale == "Swedish")
+            {
+                driver.FindElement(By.XPath("//input[@placeholder='Användarnamn']")).SendKeys(username);
+                driver.FindElement(By.XPath("//input[@placeholder='Lösenord']")).SendKeys(password);
+            }
+            
             
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
 

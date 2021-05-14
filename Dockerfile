@@ -10,17 +10,15 @@ ENV ASPNETCORE_URLS=https://+:5001
 EXPOSE 5001
 EXPOSE 5000
 
-# Set the Chrome repo.
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-# Install Chrome.
-RUN apt-get update && apt-get -y install google-chrome-stable
+# Install firefox.
+RUN echo "deb http://deb.debian.org/debian/ unstable main contrib non-free" >> /etc/apt/sources.list.d/debian.list
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends firefox
 
 #Get geckodriver for Selenium to use
-RUN wget https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip
-RUN apt-get install -y unzip
-RUN unzip chromedriver_linux64.zip
-RUN chmod +x chromedriver
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux32.tar.gz
+RUN tar -xvzf geckodriver*
+RUN chmod +x geckodriver
 
 #Install Git
 RUN apt-get install -yq git
