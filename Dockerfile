@@ -29,9 +29,6 @@ RUN git clone https://github.com/linusnyren/VgrICalSubscription.git
 #Change path to geckodriver in appsettings.json
 RUN sed -i 's+/Users/LinusNyren/Downloads+/app+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
 
-#Change locale since docker is using the english website version
-RUN sed -i 's+Swedish+English+g' VgrICalSubscription/HeromaVgrIcalSubscription/appsettings.json
-
 #Build project
 RUN dotnet publish VgrICalSubscription/HeromaVgrIcalSubscription.sln -c Debug
 ENTRYPOINT ["dotnet", "/app/VgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/HeromaVgrIcalSubscription.dll"]

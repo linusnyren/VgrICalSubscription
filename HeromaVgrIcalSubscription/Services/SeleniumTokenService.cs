@@ -34,33 +34,12 @@ namespace HeromaVgrIcalSubscription.Services
             firefoxOptions.AddArguments("--headless");
 
             driver = new FirefoxDriver(service, firefoxOptions);
-            /*var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments(new List<string>() {
-                        "--no-sandbox",
-                        "--headless",
-                        "--silent-launch",
-                        "--disable-dev-shm-usage",
-                        "no-sandbox",});
-
-            var chromeDriverService = ChromeDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
             
-            chromeDriverService.HideCommandPromptWindow = true;    // This is to hidden the console.
-
-            driver = new ChromeDriver(chromeDriverService, chromeOptions);*/
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
-            log.LogInformation("Locale is =" + options.Locale);
-            if (options.Locale == "English")
-            {
-                driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
-                driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
-            }
-            else if (options.Locale == "Swedish")
-            {
-                driver.FindElement(By.XPath("//input[@placeholder='Användarnamn']")).SendKeys(username);
-                driver.FindElement(By.XPath("//input[@placeholder='Lösenord']")).SendKeys(password);
-            }
-            
+
+            driver.FindElement(By.XPath("//input[@id='Username']")).SendKeys(username);
+            driver.FindElement(By.XPath("//input[@id='Password']")).SendKeys(password);
             
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
 
@@ -74,6 +53,12 @@ namespace HeromaVgrIcalSubscription.Services
                 token += $"{cookie.Name}={cookie.Value}; ";
             }
             log.LogInformation("Token ========= \n" + token);
+
+            if (!token.Contains("AspNetWebClientCookie_heroma.vgregion.se"))
+                throw new Exception("Unsuccessful login");
+            else
+                log.LogInformation("Succesfully retrieved tokens!");
+
             return new CookieModel
             {
                 Token = token,
