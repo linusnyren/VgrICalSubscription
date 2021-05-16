@@ -45,14 +45,15 @@ namespace HeromaVgrIcalSubscription.Services
 
             string verificationToken = driver.FindElement(By.XPath("//input[@name='__RequestVerificationToken']")).GetAttribute("value");
             var cookies = driver.Manage().Cookies.AllCookies;
-            log.LogInformation("VerificationToken ============= \n"+verificationToken);
+
             driver.Close();
+            driver.Dispose();
+            driver.Quit();
             string token = "";
             foreach(var cookie in cookies)
             {
                 token += $"{cookie.Name}={cookie.Value}; ";
             }
-            log.LogInformation("Token ========= \n" + token);
 
             if (!token.Contains("AspNetWebClientCookie_heroma.vgregion.se"))
                 throw new Exception("Unsuccessful login");
