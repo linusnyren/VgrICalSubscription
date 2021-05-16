@@ -9,6 +9,8 @@ It responds to GET calls /schema/user/password/months and returns an .ICS file w
 ## Usage
 Subscribe to this url and fill in your username and password in the web address  
 The months parameter lets you specify how many months forward you want to fetch.  
+The Username is the username for Heroma, usually the first three letters in your surname and two last in your lastname. (Ann Eklund => annek)  
+Password is self explanatory i think...  
 https://ec2-34-245-5-138.eu-west-1.compute.amazonaws.com:5001/schema/USERNAME/PASSWORD/MONTHS  
 
 How to subscribe to this on your device depends on your device, here is some quick links.  
