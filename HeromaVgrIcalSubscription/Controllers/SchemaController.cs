@@ -41,6 +41,7 @@ namespace HeromaVgrIcalSubscription.Controllers
         [HttpGet("{user}/{password}/{months}")]
         public async Task<string> Get(string user, string password, int months)
         {
+            logger.LogInformation("New incoming request from " + user);
             var req = new SchemaRequest
             {
                 UserName = user,
@@ -49,7 +50,8 @@ namespace HeromaVgrIcalSubscription.Controllers
             };
             var key = $"{user}-{password}-{months}";
             return await cache.GetOrCreateAsync(key, async entry => {
-                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(options.TtlHours);
+                //Todo change to hours
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(options.TtlHours);
                 return (await schemaService.GetCalendarAsync(req)).Content;
             });
         }

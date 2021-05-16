@@ -49,6 +49,7 @@ namespace HeromaVgrIcalSubscription.Services
             driver = new ChromeDriver(chromeDriverService, chromeOptions);*/
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
+            log.LogInformation("Locale is =" + options.Locale);
             if (options.Locale == "English")
             {
                 driver.FindElement(By.XPath("//input[@placeholder='Username']")).SendKeys(username);
@@ -65,10 +66,8 @@ namespace HeromaVgrIcalSubscription.Services
 
             string verificationToken = driver.FindElement(By.XPath("//input[@name='__RequestVerificationToken']")).GetAttribute("value");
             var cookies = driver.Manage().Cookies.AllCookies;
-            log.LogInformation(verificationToken);
+            log.LogInformation("VerificationToken ============= \n"+verificationToken);
             driver.Close();
-            driver.Dispose();
-            driver.Quit();
             string token = "";
             foreach(var cookie in cookies)
             {
@@ -77,6 +76,7 @@ namespace HeromaVgrIcalSubscription.Services
                 else
                     token += $"{cookie.Name}={cookie.Value}; ";
             }
+            log.LogInformation("Token ========= \n" + token);
             return new CookieModel
             {
                 Token = token,
