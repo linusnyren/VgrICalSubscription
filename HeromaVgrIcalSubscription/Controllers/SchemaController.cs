@@ -50,8 +50,7 @@ namespace HeromaVgrIcalSubscription.Controllers
             };
             var key = $"{user}-{password}-{months}";
             return await cache.GetOrCreateAsync(key, async entry => {
-                //Todo change to hours
-                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(options.TtlHours);
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(options.TtlHours);
                 return (await schemaService.GetCalendarAsync(req)).Content;
             });
         }
