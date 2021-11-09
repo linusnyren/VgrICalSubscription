@@ -27,11 +27,13 @@ namespace HeromaVgrIcalSubscription.Services
         {
             IWebDriver driver;
 
-            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
-            service.Port = options.ServicePort;
+            //FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
+            //service.Port = options.ServicePort;
 
+            var service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir);
+            service.Port = options.ServicePort;
             FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.AddArguments("--headless");
+            //firefoxOptions.AddArguments("--headless");
 
             driver = new FirefoxDriver(service, firefoxOptions);
             

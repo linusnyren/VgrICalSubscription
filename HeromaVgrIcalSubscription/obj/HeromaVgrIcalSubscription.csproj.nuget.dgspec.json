@@ -38,6 +38,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Ical.Net": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "RestSharp": {
               "target": "Package",
               "version": "[106.11.7, )"

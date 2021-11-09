@@ -26,3 +26,6 @@
 /Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/obj/Debug/netcoreapp3.1/HeromaVgrIcalSubscription.dll
 /Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/obj/Debug/netcoreapp3.1/HeromaVgrIcalSubscription.pdb
 /Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/obj/Debug/netcoreapp3.1/HeromaVgrIcalSubscription.genruntimeconfig.cache
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/Ical.Net.dll
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/NodaTime.dll
+/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/bin/Debug/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll

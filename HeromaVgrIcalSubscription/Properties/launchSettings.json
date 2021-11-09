@@ -1,27 +1,13 @@
 {
-  "$schema": "http://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
-    "anonymousAuthentication": false,
-    "iisExpress": {
-      "applicationUrl": "https://0.0.0.0:5001",
-      "sslPort": 44337
-    }
+    "anonymousAuthentication": true
   },
   "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": false,
-      "launchUrl": "/schema",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
     "HeromaVgrIcalSubscription": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
-      "applicationUrl": "https://0.0.0.0:5001",
+      "applicationUrl": "http://localhost:29810",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

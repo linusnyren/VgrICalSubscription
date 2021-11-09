@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
+using Ical.Net;
 using RestSharp;
 
 namespace HeromaVgrIcalSubscription.Services
@@ -21,8 +22,13 @@ namespace HeromaVgrIcalSubscription.Services
         {
             var cookies = seleniumTokenService.GetCookiesAsync(req.UserName, req.Password);
             var res = await calendarService.GetIcalAsync(cookies, req.Months);
-
+            Test(res.Content);
             return res;
+        }
+
+        private void Test(string content)
+        {
+            CalendarCollection icals = CalendarCollection.Load(content);
         }
     }
 }

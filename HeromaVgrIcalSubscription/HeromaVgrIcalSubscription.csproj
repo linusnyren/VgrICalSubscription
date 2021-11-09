@@ -26,5 +26,6 @@
     </None>
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="90.0.4430.2400" />
     <PackageReference Include="Selenium.Chrome.WebDriver" Version="85.0.0" />
+    <PackageReference Include="Ical.Net" Version="4.2.0" />
   </ItemGroup>
 </Project>
