@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
 
 namespace HeromaVgrIcalSubscription.Services
 {
@@ -26,17 +27,8 @@ namespace HeromaVgrIcalSubscription.Services
         public CookieModel GetCookiesAsync(string username, string password)
         {
             IWebDriver driver;
-
-            //FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir, options.Driver);
-            //service.Port = options.ServicePort;
-
-            var service = FirefoxDriverService.CreateDefaultService(options.SeleniumDir);
-            service.Port = options.ServicePort;
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
-            //firefoxOptions.AddArguments("--headless");
-
-            driver = new FirefoxDriver(service, firefoxOptions);
-            
+            var capability = new DesiredCapabilities();
+            driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), capability, TimeSpan.FromSeconds(600));
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
             driver.Url = options.TargetUrl;
 

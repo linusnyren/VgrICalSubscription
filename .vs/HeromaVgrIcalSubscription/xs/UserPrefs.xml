@@ -2,12 +2,12 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs">
     <Files>
       <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" Line="33" Column="6" />
-      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" Line="39" Column="10" />
+      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" Line="52" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/appsettings.json" Line="17" Column="20" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISeleniumTokenService.cs" Line="1" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISchemaService.cs" Line="1" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ICalendarService.cs" Line="1" Column="1" />
-      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="30" Column="38" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="31" Column="40" />
       <File FileName="HeromaVgrIcalSubscription/Options/SeleniumOptions.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -35,7 +35,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/Services/SchemaService.cs" relfile="HeromaVgrIcalSubscription/Services/SchemaService.cs" line="34" column="1" />
-      <Breakpoint file="/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" relfile="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" line="28" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
