@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  selenium:
+    image: selenium/standalone-firefox 
+    hostname: selenium
+    ports:
+      - "4444:4444"
+    restart: unless-stopped
+
+  vgrical:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - selenium
+    restart: unless-stopped
