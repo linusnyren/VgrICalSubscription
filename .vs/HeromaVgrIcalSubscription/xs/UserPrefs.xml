@@ -2,13 +2,13 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs">
     <Files>
       <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" Line="33" Column="6" />
-      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" Line="52" Column="1" />
-      <File FileName="HeromaVgrIcalSubscription/appsettings.json" Line="17" Column="20" />
-      <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISeleniumTokenService.cs" Line="1" Column="1" />
-      <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISchemaService.cs" Line="1" Column="1" />
-      <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ICalendarService.cs" Line="1" Column="1" />
-      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="31" Column="40" />
-      <File FileName="HeromaVgrIcalSubscription/Options/SeleniumOptions.cs" Line="1" Column="1" />
+      <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" />
+      <File FileName="HeromaVgrIcalSubscription/appsettings.json" />
+      <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISeleniumTokenService.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISchemaService.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ICalendarService.cs" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" Line="32" Column="1" />
+      <File FileName="HeromaVgrIcalSubscription/Options/SeleniumOptions.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

@@ -26,11 +26,13 @@ namespace HeromaVgrIcalSubscription.Services
 
         public CookieModel GetCookiesAsync(string username, string password)
         {
-            IWebDriver driver;
-            var capability = new DesiredCapabilities();
-            driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), capability, TimeSpan.FromSeconds(600));
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(options.TimeOut);
-            driver.Url = options.TargetUrl;
+            //IWebDriver driver;
+            //var capability = new DesiredCapabilities();
+            //driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), capability, TimeSpan.FromSeconds(600));
+
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            IWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), firefoxOptions);
+            driver.Navigate().GoToUrl(options.TargetUrl);
 
             driver.FindElement(By.XPath("//input[@id='Username']")).SendKeys(username);
             driver.FindElement(By.XPath("//input[@id='Password']")).SendKeys(password);
