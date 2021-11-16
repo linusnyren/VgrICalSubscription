@@ -51,7 +51,7 @@ namespace HeromaVgrIcalSubscription.Controllers
             var key = $"{user}-{password}-{months}";
             return await cache.GetOrCreateAsync(key, async entry => {
                 entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(options.TtlHours);
-                return (await schemaService.GetCalendarAsync(req)).Content;
+                return await schemaService.GetCalendarAsync(req);
             });
         }
     }

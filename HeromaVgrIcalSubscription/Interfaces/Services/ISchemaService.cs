@@ -7,6 +7,6 @@ namespace HeromaVgrIcalSubscription.Interfaces.Services
 {
     public interface ISchemaService
     {
-        Task<IRestResponse> GetCalendarAsync(SchemaRequest req);
+        Task<string> GetCalendarAsync(SchemaRequest req);
     }
 }
