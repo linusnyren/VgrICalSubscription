@@ -52,8 +52,7 @@ namespace HeromaVgrIcalSubscription.Services
 
             };
             calendar.ProductId = "En tjänst skapad av Linus Nyrén";
-            var swedishTimezone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
-            var currentDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.Now, swedishTimezone);
+            var currentDate = DateTime.Now.ToUniversalTime().AddHours(1);
             foreach (var ev in calendar.Events)
             {
                 ev.Summary = summaryString;
