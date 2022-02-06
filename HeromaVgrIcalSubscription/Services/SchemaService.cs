@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using HeromaVgrIcalSubscription.Interfaces.Services;
 using HeromaVgrIcalSubscription.Models;
@@ -34,7 +35,7 @@ namespace HeromaVgrIcalSubscription.Services
 
         private string AddReminders(string icsString, SchemaRequest req)
         {
-            var calendar = Calendar.Load(icsString);
+            var calendar = Ical.Net.Calendar.Load(icsString);
             var summaryString = $"{req.UserName} Ssk";
             var quarterAlarm = new Alarm()
             {
@@ -51,6 +52,8 @@ namespace HeromaVgrIcalSubscription.Services
 
             };
             calendar.ProductId = "En tjänst skapad av Linus Nyrén";
+            var swedishTimezone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
+            var currentDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.Now, swedishTimezone);
             foreach (var ev in calendar.Events)
             {
                 ev.Summary = summaryString;
@@ -58,7 +61,7 @@ namespace HeromaVgrIcalSubscription.Services
                 ev.Alarms.Add(hourAlarm);
                 ev.GeographicLocation = new GeographicLocation(57.6824618, 11.9614532);
                 ev.Location = "Sahlgrenska Universitetssjukhuset 413 45 Göteborg, Sverige";
-                ev.Description = $"En tjänst skapad av Linus Nyrén, senast uppdatering från Heroma: {DateTime.Now.ToString("f")}";
+                ev.Description = $"En tjänst skapad av Linus Nyrén, \nSenaste uppdateringen från Heroma: {currentDate.ToString("HH:mm dd/MM")}";
                 ev.Url = new Uri("https://github.com/linusnyren/VgrICalSubscription");
             }
             return new CalendarSerializer().SerializeToString(calendar);
