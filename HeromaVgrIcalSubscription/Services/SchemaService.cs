@@ -28,24 +28,24 @@ namespace HeromaVgrIcalSubscription.Services
         {
             var cookies = seleniumTokenService.GetCookiesAsync(req.UserName, req.Password);
             var res = await calendarService.GetIcalAsync(cookies, req.Months);
-            var response = AddReminders(res.Content);
+            var response = AddReminders(res.Content, req);
             return response;
         }
 
-        private string AddReminders(string icsString)
+        private string AddReminders(string icsString, SchemaRequest req)
         {
             var calendar = Calendar.Load(icsString);
-
+            var summaryString = $"{req.UserName} Ssk";
             var quarterAlarm = new Alarm()
             {
-                Summary = "Ssk",
+                Summary = summaryString,
                 Trigger = new Trigger(TimeSpan.FromMinutes(-15)),
                 Action = AlarmAction.Display
 
             };
             var hourAlarm = new Alarm()
             {
-                Summary = "Ssk",
+                Summary = summaryString,
                 Trigger = new Trigger(TimeSpan.FromHours(-1)),
                 Action = AlarmAction.Display
 
@@ -53,11 +53,12 @@ namespace HeromaVgrIcalSubscription.Services
             calendar.ProductId = "En tjänst skapad av Linus Nyrén";
             foreach (var ev in calendar.Events)
             {
+                ev.Summary = summaryString;
                 ev.Alarms.Add(quarterAlarm);
                 ev.Alarms.Add(hourAlarm);
                 ev.GeographicLocation = new GeographicLocation(57.6824618, 11.9614532);
                 ev.Location = "Sahlgrenska Universitetssjukhuset 413 45 Göteborg, Sverige";
-                ev.Description = "En tjänst skapad av Linus Nyrén";
+                ev.Description = $"En tjänst skapad av Linus Nyrén, senast uppdatering från Heroma: {DateTime.Now.ToString("f")}";
                 ev.Url = new Uri("https://github.com/linusnyren/VgrICalSubscription");
             }
             return new CalendarSerializer().SerializeToString(calendar);
