@@ -27,10 +27,10 @@ namespace HeromaVgrIcalSubscription.Services
         {
             var request = new RestRequest(Method.POST);
 
-            long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            string now = DateTimeOffset.Now.ToString("yyyy-MM-dd");
 
             int due = months < options.MaxMonths ? months : options.MaxMonths;
-            long stop = DateTimeOffset.Now.AddMonths(due).ToUnixTimeMilliseconds();
+            string stop = DateTimeOffset.Now.AddMonths(due).ToString("yyyy-MM-dd");
 
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             request.AddHeader("Cookie", cookies.Token);
@@ -40,7 +40,11 @@ namespace HeromaVgrIcalSubscription.Services
             request.AddParameter("ShowAbs", "true");
             request.AddParameter("ShowApp", "true");
             request.AddParameter("ShowTCall", "true");
+            request.AddParameter("ShowTaskWeekComments", "true");
+            request.AddParameter("ShowTaskWeekStaffComments", "true");
+            request.AddParameter("ShowWeekStaff", "true");
             request.AddParameter("__RequestVerificationToken", cookies.VerificationToken);
+            
 
             IRestResponse response = await client.ExecuteAsync(request);
             return response;

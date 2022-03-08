@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{E4CB35FC-DC87-4DE8-BBA2-4A75BEF6C41F}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Services/SchemaService.cs">
     <Files>
-      <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" Line="36" Column="10" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" Line="55" Column="74" />
       <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" />
       <File FileName="HeromaVgrIcalSubscription/appsettings.json" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISeleniumTokenService.cs" />
