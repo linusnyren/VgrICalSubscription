@@ -6,7 +6,7 @@ It then serves them as a prenumeration calendar in .ICS format.
 
 It responds to GET calls /schema/user/password/months and returns an .ICS file which a user can subscribe to on their iPhone or Android device. 
 
-A hosted service is available at http://linusnyren.ddns.net/schema/{user}/{password}/{months}
+A hosted service is available at https://linusnyren.ddns.net:5000/schema/{user}/{password}/{months}
 ## Usage
 Subscribe to this url and fill in your username and password in the web address  
 The months parameter lets you specify how many months forward you want to fetch.  
