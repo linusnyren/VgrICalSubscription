@@ -1,7 +1,7 @@
-﻿<Properties StartupConfiguration="{E4CB35FC-DC87-4DE8-BBA2-4A75BEF6C41F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/Services/SchemaService.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj">
     <Files>
-      <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" Line="55" Column="74" />
+      <File FileName="HeromaVgrIcalSubscription/Services/SchemaService.cs" Line="32" Column="1" />
       <File FileName="HeromaVgrIcalSubscription/Controllers/SchemaController.cs" />
       <File FileName="HeromaVgrIcalSubscription/appsettings.json" />
       <File FileName="HeromaVgrIcalSubscription/Interfaces/Services/ISeleniumTokenService.cs" />
@@ -10,21 +10,13 @@
       <File FileName="HeromaVgrIcalSubscription/Services/SeleniumTokenService.cs" />
       <File FileName="HeromaVgrIcalSubscription/Options/SeleniumOptions.cs" />
       <File FileName="HeromaVgrIcalSubscription/Services/CalendarService.cs" />
+      <File FileName="HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj" Line="6" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HeromaVgrIcalSubscription" expanded="True">
-            <Node name="HeromaVgrIcalSubscription" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Interfaces" expanded="True">
-                <Node name="Services" expanded="True" />
-              </Node>
-              <Node name="Options" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="SchemaService.cs" selected="True" />
-              </Node>
-            </Node>
+            <Node name="HeromaVgrIcalSubscription" selected="True" />
           </Node>
         </State>
       </Pad>
