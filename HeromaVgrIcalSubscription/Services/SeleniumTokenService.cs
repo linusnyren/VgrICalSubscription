@@ -30,7 +30,7 @@ namespace HeromaVgrIcalSubscription.Services
             chromeOptions.AddArgument("--whitelisted-ips=\"\"");
             chromeOptions.AddArgument("--no-sandbox");
             chromeOptions.AddArgument("--disable-dev-shm-usage");
-            IWebDriver driver = new RemoteWebDriver(new Uri("http://selenium:4444/wd/hub/"), chromeOptions);
+            IWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub/"), chromeOptions);
             log.LogInformation("Connected to Selenium remote");
 
             driver.Navigate().GoToUrl(options.TargetUrl);

@@ -1,17 +1,17 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net6.0": {
       "Ical.Net/4.2.0": {
         "type": "package",
         "dependencies": {
           "NodaTime": "3.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Ical.Net.dll": {}
+          "lib/net5.0/Ical.Net.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Ical.Net.dll": {}
+          "lib/net5.0/Ical.Net.dll": {}
         }
       },
       "Microsoft.CSharp/4.3.0": {
@@ -5390,7 +5390,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net6.0": [
       "Ical.Net >= 4.2.0",
       "RestSharp >= 106.11.7",
       "Selenium.Chrome.WebDriver >= 85.0.0",
@@ -5411,17 +5411,17 @@
       "outputPath": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/LinusNyren/.config/NuGet/NuGet.Config"
+        "/Users/LinusNyren/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net6"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net6.0": {
+          "targetAlias": "net6",
           "projectReferences": {}
         }
       },
@@ -5432,8 +5432,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net6.0": {
+        "targetAlias": "net6",
         "dependencies": {
           "Ical.Net": {
             "target": "Package",
@@ -5474,7 +5474,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }

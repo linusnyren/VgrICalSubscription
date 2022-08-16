@@ -15,9 +15,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="HeromaVgrIcalSubscription" expanded="True">
-            <Node name="HeromaVgrIcalSubscription" selected="True" />
-          </Node>
+          <Node name="HeromaVgrIcalSubscription" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

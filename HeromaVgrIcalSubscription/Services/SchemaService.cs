@@ -35,8 +35,9 @@ namespace HeromaVgrIcalSubscription.Services
 
         private string AddReminders(string icsString, SchemaRequest req)
         {
+            icsString = icsString.Replace("END:VTIMEZONE", "END: VTIMEZONE"); //Weird bug in Ical.Net package
             var calendar = Ical.Net.Calendar.Load(icsString);
-            var summaryString = $"{req.UserName} Ssk";
+            var summaryString = $"{req.UserName} schema";
             var quarterAlarm = new Alarm()
             {
                 Summary = summaryString,
