@@ -1,19 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /app
+FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS build
+WORKDIR /src
 
-# Prevent 'Warning: apt-key output should not be parsed (stdout is not a terminal)'
-ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
-ARG BUILD_CONFIGURATION=Debug
-ENV ASPNETCORE_ENVIRONMENT=Development
-ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
-ENV ASPNETCORE_URLS=https://+:5000
-EXPOSE 5001
-EXPOSE 5000
-RUN dotnet dev-certs https
-
+# Build and publish
 COPY . .
+RUN dotnet publish HeromaVgrIcalSubscription.sln -c Release -o /app/out
 
-#Build project
-RUN dotnet publish HeromaVgrIcalSubscription.sln -c Release -o out
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine AS final
+WORKDIR /app
+ENV ASPNETCORE_URLS=http://+:5000
+EXPOSE 5000
 
-ENTRYPOINT ["dotnet", "/app/out/HeromaVgrIcalSubscription.dll"]
+COPY --from=build /app/out .
+
+ENTRYPOINT ["dotnet", "HeromaVgrIcalSubscription.dll"]

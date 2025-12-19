@@ -1,26 +1,57 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using HeromaVgrIcalSubscription.Services;
 
-namespace HeromaVgrIcalSubscription
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
+builder.Services
+    .Configure<CalendarOptions>(builder.Configuration.GetSection("CalendarOptions"))
+    .Configure<SeleniumOptions>(builder.Configuration.GetSection("SeleniumOptions"));
+
+builder.Services
+    .AddTransient<ISchemaService, SchemaService>()
+    .AddTransient<ICalendarService, CalendarService>()
+    .AddTransient<ISeleniumTokenService, SeleniumTokenService>();
+
+builder.Services
+    .AddSingleton<IRestClient, RestClient>()
+    .AddMemoryCache();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+    app.UseDeveloperExceptionPage();
+
+app.UseHttpsRedirection();
+
+app.MapGet("/Schema", () => "Hello there!");
+
+app.MapGet("/Schema/{user}/{password}/{months}", async (
+    string user, string password, int months,
+    ISchemaService schemaService,
+    IMemoryCache cache,
+    ILogger<Program> logger) =>
 {
-    public class Program
+    logger.LogInformation("New incoming request from {User}", user);
+    var req = new SchemaRequest
     {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+        UserName = user,
+        Password = password,
+        Months = months
+    };
+    var key = $"{user}-{password}-{months}";
+    return await cache.GetOrCreateAsync(key, async entry =>
+    {
+        entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(6);
+        return await schemaService.GetCalendarAsync(req);
+    });
+});
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
-}
+app.Run();

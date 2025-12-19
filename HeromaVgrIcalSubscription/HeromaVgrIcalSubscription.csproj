@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Interfaces\Services\" />
     <Folder Include="Services\" />
     <Folder Include="Options\" />
     <File Include="appsettings.json" />

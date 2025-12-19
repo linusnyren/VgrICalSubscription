@@ -1,30 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj": {}
+    "/Users/LNYREN/privateworkspace/VgrIcalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj": {}
   },
   "projects": {
-    "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj": {
+    "/Users/LNYREN/privateworkspace/VgrIcalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj",
+        "projectUniqueName": "/Users/LNYREN/privateworkspace/VgrIcalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj",
         "projectName": "HeromaVgrIcalSubscription",
-        "projectPath": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj",
-        "packagesPath": "/Users/LinusNyren/.nuget/packages/",
-        "outputPath": "/Users/LinusNyren/Projects/HeromaVgrICalSubscription/HeromaVgrIcalSubscription/obj/",
+        "projectPath": "/Users/LNYREN/privateworkspace/VgrIcalSubscription/HeromaVgrIcalSubscription/HeromaVgrIcalSubscription.csproj",
+        "packagesPath": "/Users/LNYREN/.nuget/packages/",
+        "outputPath": "/Users/LNYREN/privateworkspace/VgrIcalSubscription/HeromaVgrIcalSubscription/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/LinusNyren/.nuget/NuGet/NuGet.Config"
+          "/Users/LNYREN/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6"
+          "net10.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/volvo-cars/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6",
+          "net10.0": {
+            "targetAlias": "net10.0",
             "projectReferences": {}
           }
         },
@@ -32,11 +33,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6",
+        "net10.0": {
+          "targetAlias": "net10.0",
           "dependencies": {
             "Ical.Net": {
               "target": "Package",
@@ -65,7 +72,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -77,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   selenium:
     image: kynetiv/selenium-standalone-chromium-pi 
