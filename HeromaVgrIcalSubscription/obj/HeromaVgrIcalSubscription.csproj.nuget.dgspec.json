@@ -47,7 +47,7 @@
           "dependencies": {
             "Ical.Net": {
               "target": "Package",
-              "version": "[4.2.0, )"
+              "version": "[5.1.4, )"
             },
             "RestSharp": {
               "target": "Package",
@@ -59,11 +59,11 @@
             },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[3.141.0, )"
+              "version": "[4.39.0, )"
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[90.0.4430.2400, )"
+              "version": "[143.0.7499.16900, )"
             }
           },
           "imports": [

@@ -1,14 +1,14 @@
+using HeromaVgrIcalSubscription.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using HeromaVgrIcalSubscription.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
-    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile("appsettings.json", false, true)
     .AddEnvironmentVariables();
 
 builder.Services
@@ -21,7 +21,8 @@ builder.Services
     .AddTransient<ISeleniumTokenService, SeleniumTokenService>();
 
 builder.Services
-    .AddSingleton<IRestClient, RestClient>()
+    .AddHttpClient<ICalendarService, CalendarService>()
+    .Services
     .AddMemoryCache();
 
 var app = builder.Build();
@@ -33,24 +34,14 @@ app.UseHttpsRedirection();
 
 app.MapGet("/Schema", () => "Hello there!");
 
-app.MapGet("/Schema/{user}/{password}/{months}", async (
-    string user, string password, int months,
-    ISchemaService schemaService,
-    IMemoryCache cache,
-    ILogger<Program> logger) =>
+app.MapGet("/Schema/{user}/{password}/{months}", async (string user, string password, int months,
+    ISchemaService schemaService, IMemoryCache cache, ILogger<Program> logger) =>
 {
     logger.LogInformation("New incoming request from {User}", user);
-    var req = new SchemaRequest
-    {
-        UserName = user,
-        Password = password,
-        Months = months
-    };
-    var key = $"{user}-{password}-{months}";
-    return await cache.GetOrCreateAsync(key, async entry =>
+    return await cache.GetOrCreateAsync($"{user}-{password}-{months}", async entry =>
     {
         entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(6);
-        return await schemaService.GetCalendarAsync(req);
+        return await schemaService.GetCalendarAsync(new(user, password, months));
     });
 });
 

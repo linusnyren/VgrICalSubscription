@@ -1,14 +1,8 @@
-﻿using System;
-namespace HeromaVgrIcalSubscription.Models
-{
-    public class SchemaRequest
-    {
-        public SchemaRequest()
-        {
-        }
+﻿namespace HeromaVgrIcalSubscription.Models;
 
-        public string UserName { get; internal set; }
-        public string Password { get; internal set; }
-        public int Months { get; internal set; }
-    }
+public class SchemaRequest(string userName, string password, int months)
+{
+    public string UserName { get; internal set; } = userName;
+    public string Password { get; internal set; } = password;
+    public int Months { get; internal set; } = months;
 }

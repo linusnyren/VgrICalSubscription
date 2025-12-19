@@ -12,7 +12,4 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="/Users/LNYREN/.nuget/packages/" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">/Users/LNYREN/.nuget/packages/newtonsoft.json/10.0.3</PkgNewtonsoft_Json>
-  </PropertyGroup>
 </Project>
